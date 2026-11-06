@@ -206,8 +206,6 @@ reply box appears under the follow-up — add the missing details (and tick
 | Photo-usability check | Scar classification logic |
 | Synthetic summaries | Proprietary prompt library |
 
-Built from scratch: no Brilliant Directories code, no existing matching logic,
-no production backend.
 
 ---
 
