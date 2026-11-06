@@ -222,7 +222,7 @@ no production backend.
 
 ## What we learned
 
-- A clean split — **LLM for interpretation, deterministic code for decisions and
+- A clean split **LLM for interpretation, deterministic code for decisions and
   state** — gives an agent that is both genuinely useful and boringly reliable,
   which is exactly what a live demo (and a health-adjacent product) needs.
 - Persisting every state transition turns "the agent did something" from a claim
