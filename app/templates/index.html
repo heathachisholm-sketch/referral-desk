@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Referral Desk — Mended Skin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <div>
+        <div class="brand-name">Mended&nbsp;Skin</div>
+        <div class="brand-sub">The Referral Desk</div>
+      </div>
+    </div>
+    <div class="mode-badge" title="Active model / mode">{{MODE_BADGE}}</div>
+  </header>
+
+  <main class="grid">
+    <!-- INTAKE -->
+    <section class="panel intake" aria-labelledby="intake-h">
+      <p class="eyebrow">Intake</p>
+      <h1 id="intake-h">Turn a patient's scar-care enquiry into a referral-ready case.</h1>
+      <p class="lede">Describe the scar in your own words. The desk structures it,
+        checks the photo, works out what's missing, and prepares the referral —
+        without making any clinical decision.</p>
+
+      <div class="demos">
+        <span class="demos-label">Load an example</span>
+        <button class="chip" data-demo="A" type="button">Complete case</button>
+        <button class="chip" data-demo="B" type="button">Missing info</button>
+        <button class="chip" data-demo="C" type="button">Not sure what's needed</button>
+      </div>
+
+      <form id="case-form">
+        <label for="text">Tell us about your scar</label>
+        <textarea id="text" name="text" rows="5" required
+          placeholder="e.g. I have a raised scar on my shoulder after surgery two years ago. I tried silicone. I'm in Manchester and not sure who to see."></textarea>
+
+        <div class="row">
+          <div>
+            <label for="location">Where are you?</label>
+            <input id="location" name="location" type="text" placeholder="Town or postcode" />
+          </div>
+          <div>
+            <label for="desired_support">Type of help (if known)</label>
+            <input id="desired_support" name="desired_support" type="text" placeholder="Optional" />
+          </div>
+        </div>
+
+        <span class="field-label">Photo (optional)</span>
+        <div class="uploader">
+          <input id="photo" name="photo" type="file" accept="image/*" hidden />
+          <button type="button" class="upload-btn" id="upload-trigger">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M14.5 4h-5L8 6H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-4l-1.5-2Z"/>
+              <circle cx="12" cy="12.5" r="3.5"/>
+            </svg>
+            Add a photo
+          </button>
+          <span class="upload-hint">Take a photo or choose one · JPG/PNG/WEBP · up to 10&nbsp;MB</span>
+
+          <div class="preview" id="preview" hidden>
+            <img id="preview-img" alt="Preview of the photo you selected" />
+            <div class="preview-meta">
+              <span class="preview-name" id="preview-name"></span>
+              <div class="preview-actions">
+                <button type="button" class="link-btn" id="replace-photo">Replace</button>
+                <button type="button" class="link-btn danger" id="remove-photo">Remove</button>
+              </div>
+            </div>
+          </div>
+          <div class="upload-error" id="upload-error" role="alert" hidden></div>
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" id="consent" name="consent" />
+          I agree my details can be used to prepare a referral.
+        </label>
+
+        <button class="submit" type="submit" id="submit-btn">Prepare my referral</button>
+      </form>
+    </section>
+
+    <!-- CONSOLE -->
+    <section class="panel console" aria-labelledby="console-h">
+      <p class="eyebrow">Case console</p>
+      <h2 id="console-h">Workflow</h2>
+
+      <div id="empty" class="empty">
+        <p>No active case. Submit an enquiry — or load an example — and the agent's
+          steps appear here in real time, each written to persistent state.</p>
+      </div>
+
+      <div id="case-meta" class="case-meta" hidden>
+        <span class="case-id" id="case-id"></span>
+        <span class="pill" id="final-state"></span>
+      </div>
+
+      <ol id="timeline" class="timeline" hidden></ol>
+
+      <div id="result" class="result" hidden></div>
+    </section>
+  </main>
+
+  <footer class="footnote">
+    <span>AI interprets · deterministic rules decide · clinicians retain care.</span>
+    <span>Prototype using synthetic data. No diagnosis or treatment advice is given.</span>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

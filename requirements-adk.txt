@@ -1,0 +1,3 @@
+# Optional: only needed to run the ADK agent (adk web / adk run).
+# The FastAPI app does not require this.
+google-adk>=1.0.0

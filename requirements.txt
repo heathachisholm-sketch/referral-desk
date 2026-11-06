@@ -1,0 +1,6 @@
+# Core runtime (FastAPI app + Gemini + Firestore)
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9
+google-genai>=1.0.0
+google-cloud-firestore>=2.16
