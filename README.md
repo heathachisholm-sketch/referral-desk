@@ -230,9 +230,3 @@ no production backend.
 
 ---
 
-## Repository access for judging
-
-This repo is private. Access has been granted to `testing@devpost.com` and
-`cloudhackathons@google.com` per the submission rules.
-
-*Built for the All Things Agentic Hackathon.*
